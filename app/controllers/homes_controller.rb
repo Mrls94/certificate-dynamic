@@ -16,7 +16,7 @@ class HomesController < ApplicationController
     save_text_to(text: public_key, file_path: "/home/ubuntu/ssl/#{domain}/#{domain}.key")
 
     @nginx = NginxTemplate.new(domain).build
-    save_text_to(text: @nginx, file_path: "#{file_path_saves}/#{domain}.conf")
+    save_text_to(text: @nginx, file_path: "/home/ubuntu/conf.d/#{domain}.conf")
     render :hello
   end
 end

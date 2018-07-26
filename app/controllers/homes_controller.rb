@@ -10,7 +10,7 @@ class HomesController < ApplicationController
     certificate = params[:certificate]
     public_key = params[:public_key]
 
-    folder = create_ssl_folder(domain)
+    folder = create_ssl_folder(domain).to_s
 
     save_text_to(text: certificate, file_path: "#{folder}/#{domain}.pem")
     save_text_to(text: public_key, file_path: "#{folder}/#{domain}.key")

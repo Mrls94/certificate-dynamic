@@ -9,7 +9,7 @@ module SaveFile
   end
 
   def create_ssl_folder(domain)
-    create_folder("#{home_folder}/ssl/#{domain}")
+    create_folder("/home/ubuntu/ssl/#{domain}")
   end
 
   private

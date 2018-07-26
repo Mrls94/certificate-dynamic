@@ -10,10 +10,10 @@ class HomesController < ApplicationController
     certificate = params[:certificate]
     public_key = params[:public_key]
 
-    folder = create_ssl_folder(domain).to_s
+    create_ssl_folder(domain).to_s
 
-    save_text_to(text: certificate, file_path: "#{folder}/#{domain}.pem")
-    save_text_to(text: public_key, file_path: "#{folder}/#{domain}.key")
+    save_text_to(text: certificate, file_path: "/home/ubuntu/ssl/#{domain}/#{domain}.pem")
+    save_text_to(text: public_key, file_path: "/home/ubuntu/ssl/#{domain}/#{domain}.key")
 
     @nginx = NginxTemplate.new(domain).build
     save_text_to(text: @nginx, file_path: "#{file_path_saves}/#{domain}.conf")

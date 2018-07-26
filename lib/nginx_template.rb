@@ -2,6 +2,8 @@
 class NginxTemplate
   attr_reader :domain
 
+  home_path = '/home/ubuntu/'
+
   def initialize(domain)
     @domain = domain
   end
@@ -11,10 +13,11 @@ class NginxTemplate
               server {
                 listen 443;
                 ssl on;
-                ssl_certificate /etc/ssl/#{@domain}.pem;
-                ssl_certificate_key /etc/ssl/#{@domain}.key;
+                ssl_certificate ~/ssl/#{domain}/#{@domain}.pem;
+                ssl_certificate_key ~/ssl/#{domain}/#{@domain}.key;
                 server_name #{@domain};
-                root #{ENV['HOME']}/ask_method/output_app/dist;
+                root ~/coverapps;
+                index index.html
                 access_log off;
                 error_log #{ENV['HOME']}/ask_method/output_app/log/nginx.error.log info;
                 error_page 500 502 503 504 /500.html;

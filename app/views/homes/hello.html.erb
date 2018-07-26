@@ -6,7 +6,7 @@
 
 <%= form_tag('/homes', method: 'post', multipart: true) do %>
   <%= text_area_tag(:certificate, "Certificate", size: "72x18") %>
-  <%= text_area_tag(:public, "Public", size: "72x18") %>
+  <%= text_area_tag(:public_key, "Public", size: "72x18") %>
   <%= text_area_tag(:domain, "domain", size: "24x6") %>
 
   <%= submit_tag("Upload") %>

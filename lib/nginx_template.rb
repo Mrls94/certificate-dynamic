@@ -19,18 +19,8 @@ class NginxTemplate
                 root ~/coverapps;
                 index index.html
                 access_log off;
-                error_log #{ENV['HOME']}/ask_method/output_app/log/nginx.error.log info;
-                error_page 500 502 503 504 /500.html;
                 client_max_body_size 10M;
                 keepalive_timeout 10;
-                location / {
-                  try_files $uri $uri/ @prerender;
-                }
-                include #{ENV['HOME']}/ask_method/output_app/dist/configurations/prerender/prerender.conf;
-                location @prerender {
-                  include #{ENV['HOME']}/ask_method/output_app/dist/configurations/prerender/helper.conf;
-                  rewrite .* /index.html break;
-                }
               }
             "
           )

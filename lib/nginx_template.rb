@@ -13,8 +13,8 @@ class NginxTemplate
               server {
                 listen 443;
                 ssl on;
-                ssl_certificate ~/ssl/#{domain}/#{@domain}.pem;
-                ssl_certificate_key ~/ssl/#{domain}/#{@domain}.key;
+                ssl_certificate /home/ubuntu/ssl/#{domain}/#{@domain}.pem;
+                ssl_certificate_key /home/ubuntu/ssl/#{domain}/#{@domain}.key;
                 server_name #{@domain};
                 root ~/coverapps;
                 index index.html
